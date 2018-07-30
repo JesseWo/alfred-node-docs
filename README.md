@@ -1,7 +1,7 @@
 alfred-node-docs
 ================
 
-> node.js workflow中文版, 跳转链接指向: http://nodejs.cn/api/
+> node.js workflow中文版, 跳转链接指向: http://nodejs.cn/api/
 
 Node.js docs at your fingertips.
 
