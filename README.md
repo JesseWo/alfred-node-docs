@@ -1,9 +1,11 @@
 alfred-node-docs
 ================
 
+> node.js workflow中文版, 跳转链接指向: http://nodejs.cn/api/
+
 Node.js docs at your fingertips.
 
-**Download**: [Node.js docs.alfredworkflow](https://github.com/oscar-broman/alfred-node-docs/blob/master/build/Node.js%20docs.alfredworkflow?raw=true)
+**Download**: [Node.js docs.alfredworkflow](https://github.com/JesseWo/alfred-node-docs/blob/master/build/Node.js%20docs.alfredworkflow?raw=true)
 
 <p align="center">
   <img src="https://raw.github.com/oscar-broman/alfred-node-docs/master/preview.png" width="620" height="462">

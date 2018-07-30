@@ -15,7 +15,7 @@ class DocsIndex {
 	}
 	
 	public function rebuild() {
-		$content = $this->loadUrlCached('http://nodejs.org/api/');
+		$content = $this->loadUrlCached('http://nodejs.cn/api/');
 		$content = preg_replace('/^.*<div id="apicontent">\s*<ul>\s*(.+?)\s*<\/ul>\s*<\/div>.*$/is', '$1', $content, 1);
 		
 		preg_match_all('/<a href="(.*?)">(.*?)<\/a>/i', $content, $matches, PREG_SET_ORDER);
@@ -28,7 +28,7 @@ class DocsIndex {
 			$href = $this->htmlDecode($href);
 			$title = $this->htmlDecode($title);
 			
-			$this->getPageEntries('http://nodejs.org/api/' . $href);
+			$this->getPageEntries('http://nodejs.cn/api/' . $href);
 		}
 		
 		file_put_contents('cache/index.dat', serialize($this->index));
@@ -37,12 +37,12 @@ class DocsIndex {
 	private function getPageEntries($url) {
 		$data = $this->loadUrlCached($url);
 		
-		$url = str_replace('http://nodejs.org/api/', '', $url);
+		$url = str_replace('http://nodejs.cn/api/', '', $url);
 		
 		preg_match_all('/<a href="(#.*?)">(.*?)<\/a>/i', $data, $matches, PREG_SET_ORDER);
 		
 		$links = array();
-		$title = str_replace('http://nodejs.org/api/', '', $url);
+		$title = str_replace('http://nodejs.cn/api/', '', $url);
 		
 		if (preg_match('/<div id="apicontent">.*?<h1>(.*?)</is', $data, $match)) {
 			$title = $this->htmlDecode($match[1]);
@@ -59,10 +59,10 @@ class DocsIndex {
 	}
 	
 	private function loadUrlCached($url) {
-		if ($url === 'http://nodejs.org/api/') {
+		if ($url === 'http://nodejs.cn/api/') {
 			$cache_file = 'index';
 		} else {
-			$cache_file = str_replace('http://nodejs.org/api/', '', $url);
+			$cache_file = str_replace('http://nodejs.cn/api/', '', $url);
 			$cache_file = preg_replace('/[^a-z0-9._\-]/i', '-', $cache_file);
 		}
 		
@@ -128,7 +128,7 @@ class DocsIndex {
 			foreach ($links as $link => $title) {
 				if (stripos($link, $str) !== false || stripos($title, $str) !== false) {
 					$results[] = (object) array(
-						'url' => 'http://nodejs.org/api/' . $link,
+						'url' => 'http://nodejs.cn/api/' . $link,
 						'title' => $title,
 						'category' => $page
 					);
